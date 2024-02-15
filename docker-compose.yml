@@ -1,0 +1,34 @@
+version: '3'
+services:
+  # Containers that will be created when we run docker-compose
+  web: 
+    # Specify the image to create this initial container
+    build:
+    # Where to look for files/folders to be pulled
+    # In this case, we want to look in cwd
+      context: .
+      # Specifies file in cwd of interest
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "3000:3000"
+    volumes:
+      # Specifies to only look at file inside container
+      - /home/node/app/node_modules
+      # Specifies to map folder outside container to folder
+      # inside the container
+      - ~/frontend:/home/node/app
+  tests:
+    # Specify the image to create this initial container
+    build:
+    # Where to look for files/folders to be pulled
+    # In this case, we want to look in cwd
+      context: .
+      # Specifies file in cwd of interest
+      dockerfile: Dockerfile.dev
+    volumes:
+      # Specifies to only look at file inside container
+      - /home/node/app/node_modules
+      # Specifies to map folder outside container to folder
+      # inside the container
+      - ~/frontend:/home/node/app
+    command: ["npm", "run", "test"]

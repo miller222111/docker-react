@@ -1,0 +1,26 @@
+# Base image
+FROM node:16-alpine
+
+# Speciyfing user which will execute RUN, CMD, & ENTRYPOINT
+# instructions will be node user as oppossed to root (default)
+USER node
+
+# This will prevent a permissions issue since WORKDIR by default
+# creates a directory if it doesn't exist and set ownership to root
+RUN mkdir -p '/home/node/app'
+
+# Container working directory
+WORKDIR '/home/node/app'
+
+# Inline chow commands will set ownership of the files you are copying
+# from local env to the node user in the container
+COPY --chown=node:node ./package.json ./
+
+# Execute the following command
+RUN npm install
+
+# Copy remaining local env files to node user in container
+COPY --chown=node:node ./ ./
+
+# Execute the following
+CMD [ "npm", "start"]
