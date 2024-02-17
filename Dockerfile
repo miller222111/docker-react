@@ -1,6 +1,6 @@
 #---------Build Phase--------#
 ## Base image
-FROM node:16-alpine as builder
+FROM node:20-alpine as builder
 
 ## Working dir
 WORKDIR '/app'
