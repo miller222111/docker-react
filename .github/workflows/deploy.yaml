@@ -16,7 +16,7 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
 
-      - name: Save to git repo
+      # - name: Save to git repo
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: Changed files
