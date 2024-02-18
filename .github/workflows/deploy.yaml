@@ -25,5 +25,5 @@ jobs:
           environment_name: Learntest4-env
           existing_bucket_name: elasticbeanstalk-us-gov-west-1-108514116999
           region: us-gov-west-1
-          # version_label: version1
+          version_label: 1
           deployment_package: deploy.zip
