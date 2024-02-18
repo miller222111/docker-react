@@ -14,10 +14,8 @@ jobs:
       - run: docker run -e CI=true cygnetops/react-test npm test
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
-        outputs:
-          results-file: deploy
-
+        #run: zip -r deploy.zip . -x '*.git*'
+        run: zip -r deploy.zip . -x '.git/*' '.github/*'
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
       #  with:
