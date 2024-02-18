@@ -21,9 +21,9 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: learn_test3
-          environment_name: Learntest3-env
+          application_name: learn_test4
+          environment_name: Learntest4-env
           existing_bucket_name: elasticbeanstalk-us-gov-west-1-108514116999
           region: us-gov-west-1
-          version_label: version1
+          # version_label: version1
           deployment_package: deploy.zip
