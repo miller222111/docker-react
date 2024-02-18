@@ -17,11 +17,20 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
         #run: zip -r deploy.zip . 
 
+      - name: List repo files
+        run: ls ${{ github.workspaces}}
+
       - name: Upload zip file as artifact
         uses: actions/upload-artifact@v4
         with:
           name: deploy
           path: ./
+
+job2:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: 
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
       #  with:
