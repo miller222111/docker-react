@@ -20,7 +20,7 @@ jobs:
       - name: Upload zip file as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: deploy.zip
+          name: deploy
           path: ./
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
