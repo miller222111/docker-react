@@ -14,7 +14,9 @@ jobs:
       - run: docker run -e CI=true cygnetops/react-test npm test
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: 
+          cd $GITHUB_WORKSPACE/dist
+          zip -r deploy.zip . -x '*.git*'
         #run: zip -r deploy.zip . 
 
       - name: List repo files
@@ -23,8 +25,8 @@ jobs:
       - name: Upload zip file as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: deploy
-          path: ~/deploy.zip
+          name: deployment-artifact
+          path: $GITHUB_WORKSPACE/dist/deploy.zip
 
   # download_artifact:
   #   runs-on: ubuntu-latest
