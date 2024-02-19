@@ -11,23 +11,23 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t cygnetops/react-test -f Dockerfile.dev .
-      - run: docker run -e CI=true cygnetops/react-test npm test
-
-      - name: Set working directory
-        run: cd $GITHUB_WORKSPACE/dist
-        
-      - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
-        #run: zip -r deploy.zip . 
+      - run: docker run -e CI=true cygnetops/react-test npm test 
 
       - name: List repo files
         run: ls ${{ github.workspaces}}
+
+      # - name: Set working directory
+      #   run: cd $GITHUB_WORKSPACE/dist
+        
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+        #run: zip -r deploy.zip .
 
       - name: Upload zip file as artifact
         uses: actions/upload-artifact@v4
         with:
           name: deployment-artifact
-          path: $GITHUB_WORKSPACE/dist/deploy.zip
+          path: '*deploy*'
 
   # download_artifact:
   #   runs-on: ubuntu-latest
