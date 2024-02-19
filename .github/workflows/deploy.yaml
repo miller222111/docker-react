@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: deploy
-          path: ./
+          path: deployment
 
   download_artifact:
     runs-on: ubuntu-latest
