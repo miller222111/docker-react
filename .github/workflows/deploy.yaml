@@ -14,9 +14,8 @@ jobs:
       - run: docker run -e CI=true cygnetops/react-test npm test
 
       - name: Generate deployment package
-        run: 
-          cd $GITHUB_WORKSPACE/dist
-          zip -r deploy.zip . -x '*.git*'
+        run: cd $GITHUB_WORKSPACE/dist
+        run: zip -r deploy.zip . -x '*.git*'
         #run: zip -r deploy.zip . 
 
       - name: List repo files
