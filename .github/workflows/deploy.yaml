@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: deploy
-          path: ./
+          path: src
 
   download_artifact:
     runs-on: ubuntu-latest
@@ -36,11 +36,11 @@ jobs:
           name: deploy
       - name: Display structure of downloaded files
         run: ls -R
-      - name: Add, commit, and push changes
-        run:
-          git add /usr/bin/bash/deploy.zip
-          git commit -m "add downloaded artifact"
-          git push
+      # - name: Add, commit, and push changes
+        # run:
+        #   git add /usr/bin/bash/deploy.zip
+        #   git commit -m "add downloaded artifact"
+        #   git push
 
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
