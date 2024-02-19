@@ -38,9 +38,9 @@ jobs:
         run: ls -R
       - name: Add, commit, and push changes
         run:
-          git add ./
+          git add .
           git commit -m "add downloaded artifact"
-          git push origin master
+          git push
 
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
