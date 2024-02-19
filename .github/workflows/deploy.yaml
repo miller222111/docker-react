@@ -36,6 +36,11 @@ jobs:
           name: deploy
       - name: Display structure of downloaded files
         run: ls -R
+      - name: Add, commit, and push changes
+        run:
+          git add ./
+          git commit -m "add downloaded artifact"
+          git push origin master
 
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
