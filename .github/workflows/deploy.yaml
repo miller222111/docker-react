@@ -13,8 +13,10 @@ jobs:
       - run: docker build -t cygnetops/react-test -f Dockerfile.dev .
       - run: docker run -e CI=true cygnetops/react-test npm test
 
-      - name: Generate deployment package
+      - name: Set working directory
         run: cd $GITHUB_WORKSPACE/dist
+        
+      - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
         #run: zip -r deploy.zip . 
 
