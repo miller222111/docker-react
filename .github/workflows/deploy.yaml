@@ -38,7 +38,7 @@ jobs:
         run: ls -R
       - name: Add, commit, and push changes
         run:
-          git add .
+          git add /usr/bin/bash/deploy.zip
           git commit -m "add downloaded artifact"
           git push
 
