@@ -21,6 +21,9 @@ RUN npm run build
 # Base image (FROM starts a second phase)
 FROM nginx
 
+# Elastic Beanstalk and port that gets mapped for incoming traffic
+EXPOSE 80
+
 # Copy from builder phase just the "build" file
 COPY --from=builder /app/build /usr/share/nginx/html
 
