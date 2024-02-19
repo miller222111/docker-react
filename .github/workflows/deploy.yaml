@@ -32,8 +32,8 @@ jobs:
       - name: download zip file artifact
         uses: actions/download-artifact@v4
         with:
-          - name: deploy
-            path: src
+          name: deploy
+          path: src
 
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
