@@ -21,7 +21,7 @@ RUN npm run build
 # Base image (FROM starts a second phase)
 FROM nginx
 
-# AWS EB and port that gets mapped for incoming traffic
+# AWS Elastic BS and port that gets mapped for incoming traffic
 EXPOSE 80
 
 # Copy from builder phase just the "build" file
