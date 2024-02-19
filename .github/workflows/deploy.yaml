@@ -28,6 +28,7 @@ jobs:
 
   download_artifact:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: download zip file artifact
         uses: actions/download-artifact@v4
