@@ -2,9 +2,9 @@ name: Deploy Frontend
 on:
   push:
     branches:
-      - master #Check repo as my default branch might be master
+      - master
 
-jobs:
+job1:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +24,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: deploy
-          #path: ./
+          path: ./
+
+job2:
+  build:
+    runs-on: ubuntu-latest
+      steps:
+        - name: download zip file artifact
+          uses: actions/download-artifact@v4
+          with:
+            - name: deploy
+              path: src
+
       #- name: Deploy to EB
       #  uses: einaregilsson/beanstalk-deploy@v21
       #  with:
