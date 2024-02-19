@@ -23,11 +23,11 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
         #run: zip -r deploy.zip .
 
-      - name: Upload zip file as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: deployment-artifact
-          path: '*deploy*'
+      # - name: Upload zip file as artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: deployment-artifact
+      #     path: '*deploy*'
 
   # download_artifact:
   #   runs-on: ubuntu-latest
@@ -45,14 +45,14 @@ jobs:
         #   git commit -m "add downloaded artifact"
         #   git push
 
-      #- name: Deploy to EB
-      #  uses: einaregilsson/beanstalk-deploy@v21
-      #  with:
-      #    aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-      #    aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-      #    application_name: learn_test4
-      #    environment_name: Learntest4-env
-      #    existing_bucket_name: elasticbeanstalk-us-gov-west-1-108514116999
-      #    region: us-gov-west-1
-      #    version_label: ${{ github.sha }}
-      #    deployment_package: deploy.zip
+      - name: Deploy to EB
+       uses: einaregilsson/beanstalk-deploy@v21
+       with:
+         aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+         aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+         application_name: frontend
+         environment_name: frontend-env
+         existing_bucket_name: elasticbeanstalk-us-gov-west-1-108514116999
+         region: us-gov-west-1
+         version_label: ${{ github.sha }}
+         deployment_package: deploy.zip
