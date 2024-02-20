@@ -21,7 +21,7 @@ services:
     # Specify the image to create this initial container
     build:
     # Where to look for files/folders to be pulled
-    # In this case, we want to look in cwd
+    # In this case, we want to look in CWD
       context: .
       # Specifies file in cwd of interest
       dockerfile: Dockerfile.dev
